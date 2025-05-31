@@ -1,0 +1,18 @@
+Days - 7
+
+  class Solution:
+
+    def maximumProfit(self, prices):
+        # Initialize profit to 0. This will hold the total profit.
+        profit = 0
+
+        # Loop through the prices array starting from the second element (index 1)
+        for i in range(1, len(prices)):
+            # Check if the price today (prices[i]) is greater than the price yesterday (prices[i-1]).
+            # This means there's an opportunity for profit, as buying yesterday and selling today would yield profit.
+            if prices[i - 1] < prices[i]:
+                # Add the difference (profit) to the total profit.
+                profit += prices[i] - prices[i - 1]
+
+        # Return the accumulated profit after processing all days.
+        return profit
