@@ -1,0 +1,17 @@
+Days 28
+
+class Solution:
+    
+    def countFreq(self, arr, target):
+        #Get the index of the first occurrence of x
+        low = bisect.bisect_left(arr, target)
+        
+        #If element is not present, return 0
+        if low == len(arr) or arr[low] != target:
+            return 0
+            
+        # Get the index of the last occurrence of x
+        high = bisect.bisect_right(arr, target)
+        
+        # Return the Count of occurrences
+        return high - low
