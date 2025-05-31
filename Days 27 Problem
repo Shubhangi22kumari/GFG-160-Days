@@ -1,0 +1,25 @@
+Days 27
+
+class Solution:
+
+    def mergeArrays(self, a, b):
+        # Initialize pointer 'i' to the last index of array 'a'
+        i = len(a) - 1
+        # Initialize pointer 'j' to the first index of array 'b'
+        j = 0
+
+        # Loop until either 'i' goes out of bounds of 'a' or 'j' exceeds bounds of 'b'
+        # Also, continue looping as long as the current element in 'a' is greater than
+        # the current element in 'b'
+        while i >= 0 and j < len(b) and a[i] > b[j]:
+            # Swap the elements a[i] and b[j]
+            a[i], b[j] = b[j], a[i]
+            # Decrement 'i' to move to the previous element in 'a'
+            i -= 1
+            # Increment 'j' to move to the next element in 'b'
+            j += 1
+
+        # After swapping, sort array 'a' to ensure its elements are in non-decreasing order
+        a.sort()
+        # Similarly, sort array 'b' to ensure its elements are in non-decreasing order
+        b.sort()
